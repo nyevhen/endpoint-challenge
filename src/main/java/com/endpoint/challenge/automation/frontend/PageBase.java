@@ -30,23 +30,38 @@ public class PageBase {
         PageFactory.initElements(driver.get(), this);
     }
 
-
+    /**
+     * Waiting for page to be fully loaded
+     */
     public void waitForPageLoad() {
         wait = new WebDriverWait(driver.get(), Duration.ofSeconds(timeout));
         wait.until(driver -> ((JavascriptExecutor)driver).executeScript("return document.readyState").equals("complete"));
     }
 
-    @SuppressWarnings("deprecation")
+    /**
+     * Wait for expected condition
+     * @param element
+     * @return
+     */
     public WebElement waitElementToBeClickable(WebElement element) {
         wait = new WebDriverWait(driver.get(), Duration.ofSeconds(timeout));
         wait.until(ExpectedConditions.elementToBeClickable(element));
         return element;
     }
 
+    /**
+     * Clicks element using java script executor
+     * @param element
+     */
     public void clickElementUsingJs(WebElement element) {
         ((JavascriptExecutor) driver.get()).executeScript("arguments[0].click();", element);
     }
 
+    /**
+     * Browser windows switcher
+     * @param windowNumber
+     * @return
+     */
     public List<String> switchToWindow(Integer windowNumber){
         List<String> browserTabs = new ArrayList<>(driver.get().getWindowHandles());
         log.info(String.valueOf(browserTabs.size()));
@@ -62,20 +77,37 @@ public class PageBase {
         return browserTabs;
     }
 
+    /**
+     * Can be used to scroll to specific position on the page
+     * @return
+     */
     public Long getScrollBarPosition() {
         return (Long) ((JavascriptExecutor) driver.get()).executeScript("return window.pageYOffset;");
     }
 
+    /**
+     * Can be used to scroll some page element into view
+     * @param element
+     * @return
+     */
     public Long scrollToElement(WebElement element) {
 
         ((JavascriptExecutor) driver.get()).executeScript("window.scrollBy(0,"+(element.getLocation().getY()-result.get(0))+");");
         return getScrollBarPosition();
     }
 
+    /**
+     * Returns page title as String
+     * @return
+     */
     public String getPageTitle() {
         return driver.get().getTitle();
     }
 
+    /**
+     * Returns current date in format yyyy-MM-dd_HH:mm:ss
+     * @return
+     */
     private String dateFormated() {
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
@@ -84,18 +116,35 @@ public class PageBase {
         return dateFormat.format(date);
     }
 
+    /**
+     * Simulates back button click
+     */
     public void goBack(){
         driver.get().navigate().back();
     }
 
+    /**
+     * Switch to iFrame
+     * @param iFrame
+     */
     public void switchToIFrame(WebElement iFrame){
         driver.get().switchTo().frame(iFrame);
     }
 
+    /**
+     * Set value for inputs using javascript executor
+     * @param value
+     * @param element
+     */
     public void enterValueUsingJs(String value, WebElement element){
         ((JavascriptExecutor) driver.get()).executeScript("arguments[0].setAttribute('value',arguments[1]);", element,value);
     }
 
+    /**
+     * Select element using javascript executor
+     * @param element
+     * @param value
+     */
     public void jsSelect(WebElement element, String value) {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("const textToFind = '" + value + "';" +

@@ -35,6 +35,13 @@ public class BrowserSetup implements En {
 
     private static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<>();
 
+    /**
+     * Returns threadlocal webdriver
+     * @param browser
+     * @param url
+     * @return
+     * @throws MalformedURLException
+     */
     public ThreadLocal<RemoteWebDriver> getDriver(String browser,String url) throws MalformedURLException {
 //        sharedVariables.setRemotePlatformExecution(false);
         log.info(browser);
