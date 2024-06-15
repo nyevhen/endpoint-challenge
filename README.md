@@ -30,4 +30,8 @@ https://googlechromelabs.github.io/chrome-for-testing/
 ## Test execution
 To run all of UI test you can go to the root of the repo and run:
 
-```mvn clean install```
+```mvn clean install -Dtest="RunUITest"```
+
+Basic html report will be saved to:
+${project.build.directory}/cucumber-reports/
+

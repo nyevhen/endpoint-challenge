@@ -173,8 +173,8 @@
                         </goals>
                         <configuration>
                             <projectName>Nindshare project</projectName>
-                            <outputDirectory>${project.build.directory}/cucumber-reports/conyebn/out</outputDirectory>
-                            <inputDirectory>${project.build.directory}/cucumber-reports/conyebn</inputDirectory>
+                            <outputDirectory>${project.build.directory}/cucumber-reports/out</outputDirectory>
+                            <inputDirectory>${project.build.directory}/cucumber-reports/</inputDirectory>
                             <jsonFiles>
                                 <param>**/*.json</param>
                             </jsonFiles>
