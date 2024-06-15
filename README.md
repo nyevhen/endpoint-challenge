@@ -1,4 +1,4 @@
-                                    *** Scalable Framework for UI Automation ***
+                                    *** Tech challenge from Endpoint accepted ***
 ![alt text](https://github.com/nyevhen/endpoint-challenge/blob/main/Screenshot%202024-06-15%20at%201.52.30%E2%80%AFPM.png)
 
 # What you can do with it
