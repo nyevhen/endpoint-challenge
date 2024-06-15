@@ -1,0 +1,14 @@
+ui:
+  wiki:
+    base-url: https://en.wikipedia.org
+    login-page: /w/index.php?title=Special:UserLogin&returnto=Main+Page
+    niels-page: /wiki/Niels_Bohr
+    nikola-page: /wiki/Nikola_Tesla
+    random-page: /wiki/Special:Random
+    watchlist-page: /wiki/Special:EditWatchlist
+auth:
+  user-login: Neugene82
+  user-pwd: StanWritesCodeForFun1!
+
+bb:
+  apikey:
