@@ -1,5 +1,5 @@
                                     *** Scalable Framework for UI Automation ***
-
+![alt text](https://github.com/nyevhen/endpoint-challenge/blob/main/Screenshot%202024-06-15%20at%201.52.30%E2%80%AFPM.png)
 
 # What you can do with it
 
@@ -19,7 +19,7 @@ To code, build, and run tests in this framework locally you'l need:
 ## Installation
 To download latest and greatest source of this framework run:
 
-```git clone ```
+```git clone https://github.com/nyevhen/endpoint-challenge.git```
 
 ## Configuration
 To run tests on your side you'll need to create "drivers" folder in the root of project and leave chromedriver inside.
@@ -28,3 +28,6 @@ https://googlechromelabs.github.io/chrome-for-testing/
 
 
 ## Test execution
+To run all of UI test you can go to the root of the repo and run:
+
+```mvn clean install```
