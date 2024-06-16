@@ -78,6 +78,13 @@ public class WikiPage extends PageBase {
     private WebElement wikiPageRemoveFromWL;
 
     /**
+     * Check all articles in watchlist
+     */
+    @FindBy(css = "[name='wpCheckAllNs0']")
+    private WebElement wikiPageCheckAllInWL;
+
+
+    /**
      * Method can be used to get web element representing the checkbox of a certain article
      *
      * @param label the title of the article

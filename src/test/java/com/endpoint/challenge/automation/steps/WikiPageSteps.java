@@ -118,6 +118,20 @@ public class WikiPageSteps implements En{
             });
             // Validating that desired article <articleLabel>, removed from watchlist.
             assertFalse(sharedEntities.getWikiPage().getWikiWatchlistArlicleLabelsList().contains(articleLabel));
+            // Removing remaining articles. I know this way is ugly but i'm sure wiki will
+            // block my account if i'll add an API call to setup and teardown
+            sharedVariables.getDriver().get().get(wikiBaseUrl + wikiWLUrl);
+            sharedEntities.getWikiPage().waitForPageLoad();
+            sharedEntities.getWikiPage().getWikiPageCheckAllInWL().click();
+            sharedEntities.getWikiPage().getWikiWatchlistRemoveCTA().click();
+        });
+
+        And("^User removes page \"([^\"]*)\" from watchlist$", (String articleLabel) -> {
+            // Adding article to watchlist
+            sharedEntities.getWikiPage().getWikiPageRemoveFromWL().click();
+            sharedEntities.getWikiPage().waitForPageLoad();
+            // Removing deleted article from array list
+            sharedVariables.getArticleTitleList().remove(articleLabel);
         });
 
     }
